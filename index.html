@@ -156,22 +156,130 @@
       to { opacity: 1; }
     }
 
-    /* Navbar fallback if needed */
-    nav {
+    /* Header Styles */
+    header {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(15, 23, 42, 0.8);
-      backdrop-filter: blur(10px);
-      z-index: 100;
-      padding: 15px 0;
+      height: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      background: rgba(17, 12, 8, 0.8);
+      backdrop-filter: blur(15px);
       border-bottom: 1px solid var(--glass);
+      z-index: 1000;
+      box-sizing: border-box;
+    }
+
+    .logo img {
+      height: 60px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .header-actions .icon {
+      cursor: pointer;
+      width: 28px;
+      height: 28px;
+      color: var(--primary);
+      transition: transform 0.3s ease;
+    }
+
+    .header-actions .icon:hover {
+      transform: scale(1.1);
+      color: var(--secondary);
+    }
+
+    .social-dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      background: #1c1917;
+      border: 1px solid var(--glass);
+      border-radius: 12px;
+      padding: 10px;
+      width: 180px;
+      display: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      animation: fadeInDown 0.3s ease;
+    }
+
+    .social-dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+
+    .dropdown-content a:hover {
+      background: var(--glass);
+      color: var(--primary);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 120px 20px 40px 20px; /* Shift content down for header */
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="شعاري المخبزة">
+    </div>
+
+    <div class="header-actions">
+      <!-- Search Icon -->
+      <a href="#" style="color: inherit;">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </a>
+
+      <!-- Menu Dropdown -->
+      <div class="social-dropdown">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+
+        <div class="dropdown-content">
+          <p style="margin: 5px 10px; font-weight: bold; color: var(--secondary);">تواصل معنا</p>
+          <a href="#">
+            <span>انستغرام</span>
+          </a>
+          <a href="#">
+            <span>فيسبوك</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <div class="bg-gradient"></div>
+
   <div class="circle circle-1"></div>
   <div class="circle circle-2"></div>
 
