@@ -112,61 +112,68 @@
     }
 
     .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
       animation: fadeIn 1.5s ease;
     }
 
     .card {
-      display: block; /* Ensure cards are block for filtering */
+      display: flex;
+      align-items: center;
+      gap: 30px;
       background: var(--card-bg);
       backdrop-filter: blur(10px);
       border: 1px solid var(--glass);
-      border-radius: 24px;
-      overflow: hidden;
-      padding: 20px;
+      border-radius: 20px;
+      padding: 15px 25px;
       cursor: pointer;
-      position: relative;
       text-decoration: none;
       color: inherit;
+      text-align: right;
     }
 
     .card:hover {
-      transform: translateY(-10px);
+      transform: translateX(-10px);
       border-color: var(--primary);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
 
     .card model-viewer {
-      width: 100%;
-      height: 250px;
+      width: 150px;
+      height: 150px;
+      flex-shrink: 0;
       background-color: transparent;
-      pointer-events: none; /* Disable interaction in gallery */
+      pointer-events: none;
+    }
+
+    .card-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .card h3 {
-      font-size: 1.5rem;
-      margin-top: 15px;
-      margin-bottom: 10px;
+      font-size: 1.6rem;
+      margin: 0 0 5px 0;
     }
 
     .card .price {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: bold;
       color: var(--secondary);
-      margin-bottom: 10px;
+      margin: 0;
     }
 
     .card .btn {
-      display: inline-block;
-      padding: 10px 24px;
-      background: linear-gradient(45deg, var(--primary), #e63946);
-      border-radius: 12px;
-      font-weight: bold;
+      align-self: flex-start;
       margin-top: 10px;
-      opacity: 0.8;
+      padding: 8px 20px;
+      font-size: 0.9rem;
     }
+
 
     .card:hover .btn {
       opacity: 1;
@@ -367,34 +374,43 @@
       <!-- Dish - Category: Pie/Salty -->
       <a href="dish.html" class="card" data-category="pie">
         <model-viewer src="dish.glb" auto-rotate environment-image="neutral" shadow-intensity="1"></model-viewer>
-        <h3>الطبق الرئيسي</h3>
-        <div class="price">1200 د.ج</div>
-        <div class="btn">عرض التفاصيل</div>
+        <div class="card-info">
+          <h3>الطبق الرئيسي</h3>
+          <div class="price">1200 د.ج</div>
+          <div class="btn">عرض التفاصيل</div>
+        </div>
       </a>
 
       <!-- Cockies - Category: Bakery -->
       <a href="cockies.html" class="card" data-category="bakery">
         <model-viewer src="cockies.glb" auto-rotate environment-image="neutral" shadow-intensity="1"></model-viewer>
-        <h3>كوكيز الشوكولاتة</h3>
-        <div class="price">450 د.ج</div>
-        <div class="btn">عرض التفاصيل</div>
+        <div class="card-info">
+          <h3>كوكيز الشوكولاتة</h3>
+          <div class="price">450 د.ج</div>
+          <div class="btn">عرض التفاصيل</div>
+        </div>
       </a>
 
       <!-- Croissant - Category: Bakery -->
       <a href="croissant.html" class="card" data-category="bakery">
         <model-viewer src="croissant.glb" auto-rotate environment-image="neutral" shadow-intensity="1"></model-viewer>
-        <h3>كرواسون فرنسي</h3>
-        <div class="price">350 د.ج</div>
-        <div class="btn">عرض التفاصيل</div>
+        <div class="card-info">
+          <h3>كرواسون فرنسي</h3>
+          <div class="price">350 د.ج</div>
+          <div class="btn">عرض التفاصيل</div>
+        </div>
       </a>
 
       <!-- Mini Cake - Category: Bakery -->
       <a href="mini-cake.html" class="card" data-category="bakery">
         <model-viewer src="mini-cake.glb" auto-rotate environment-image="neutral" shadow-intensity="1"></model-viewer>
-        <h3>ميني كيك</h3>
-        <div class="price">750 د.ج</div>
-        <div class="btn">عرض التفاصيل</div>
+        <div class="card-info">
+          <h3>ميني كيك</h3>
+          <div class="price">750 د.ج</div>
+          <div class="btn">عرض التفاصيل</div>
+        </div>
       </a>
+
 
     </div>
   </div>
