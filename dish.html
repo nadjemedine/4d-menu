@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عرض الطبق الرئيسي</title>
+  <link rel="stylesheet" href="viewer.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+
+  <div class="bg-gradient"></div>
+  <div class="circle circle-1"></div>
+  <div class="circle circle-2"></div>
+
+  <a href="index.html" class="back-btn">
+    <span>&larr;</span> العودة للمعرض
+  </a>
+
+  <model-viewer 
+    src="dish.glb" 
+    alt="طبق طعام" 
+    auto-rotate 
+    camera-controls 
+    ar 
+    ar-modes="webxr scene-viewer quick-look" 
+    environment-image="neutral" 
+    shadow-intensity="1">
+    
+    <div slot="ar-button" class="ar-button">
+      عرض في الواقع المعزز (AR)
+    </div>
+  </model-viewer>
+
+  <div class="controls">
+    <div class="details-panel">
+      <h1>الطبق الرئيسي</h1>
+      <div class="price">1200 د.ج</div>
+      <div class="specs-grid">
+        <div class="spec-item">
+          <strong>الوزن</strong>
+          <span>450 جرام</span>
+        </div>
+        <div class="spec-item">
+          <strong>وقت التحضير</strong>
+          <span>20 دقيقة</span>
+        </div>
+      </div>
+      <div class="contents">
+        <strong>المحتويات:</strong> لحم بقري فاخر، أرز بسمتي، مزيج من التوابل الشرقية الأصيلة.
+      </div>
+    </div>
+    
+    <div class="ar-button-container">
+      <div slot="ar-button" class="ar-button">
+        تفعيل الواقع المعزز (AR)
+      </div>
+    </div>
+  </div>
+
+  <script src="viewer.js"></script>
+</body>
+</html>
