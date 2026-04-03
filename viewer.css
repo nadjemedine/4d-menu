@@ -1,9 +1,9 @@
 :root {
-  --primary: #ff6b6b;
-  --secondary: #4ecdc4;
-  --bg: #0f172a;
-  --glass: rgba(255, 255, 255, 0.05);
-  --text: #f1f5f9;
+  --primary: #d97706; /* Golden Crust */
+  --secondary: #fbbf24; /* Warm Glow */
+  --bg: #110c08; /* Dark Chocolate */
+  --glass: rgba(217, 119, 6, 0.1);
+  --text: #fff7ed;
 }
 
 body {
@@ -26,7 +26,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: -5;
-  background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+  background: radial-gradient(circle at 50% 50%, #2b1d0e 0%, #110c08 100%);
 }
 
 .circle {
