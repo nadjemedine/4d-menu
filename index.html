@@ -80,6 +80,37 @@
       animation: fadeInUp 1s ease;
     }
 
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .filter-btn {
+      padding: 10px 25px;
+      background: var(--card-bg);
+      border: 1px solid var(--glass);
+      border-radius: 30px;
+      color: #fff;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .filter-btn:hover {
+      background: var(--glass);
+      border-color: var(--primary);
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      border-color: transparent;
+      box-shadow: 0 5px 15px rgba(217, 119, 6, 0.3);
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -88,6 +119,7 @@
     }
 
     .card {
+      display: block; /* Ensure cards are block for filtering */
       background: var(--card-bg);
       backdrop-filter: blur(10px);
       border: 1px solid var(--glass);
@@ -287,33 +319,40 @@
     <h1>القائمة</h1>
     <p>استكشف تشكيلتنا الفاخرة بشكل تفاعلي</p>
 
+    <!-- Filter Buttons -->
+    <div class="filter-container">
+      <button class="filter-btn active" data-filter="all">الكل</button>
+      <button class="filter-btn" data-filter="bakery">المخبوزات</button>
+      <button class="filter-btn" data-filter="pie">الفطائر</button>
+    </div>
+
     <div class="grid">
-      <!-- Dish -->
-      <a href="dish.html" class="card">
+      <!-- Dish - Category: Pie/Salty -->
+      <a href="dish.html" class="card" data-category="pie">
         <model-viewer src="dish.glb" auto-rotate environment-image="neutral" shadow-intensity="1"></model-viewer>
         <h3>الطبق الرئيسي</h3>
         <div class="price">1200 د.ج</div>
         <div class="btn">عرض التفاصيل</div>
       </a>
 
-      <!-- Cockies -->
-      <a href="cockies.html" class="card">
+      <!-- Cockies - Category: Bakery -->
+      <a href="cockies.html" class="card" data-category="bakery">
         <model-viewer src="cockies.glb" auto-rotate environment-image="neutral" shadow-intensity="1"></model-viewer>
         <h3>كوكيز الشوكولاتة</h3>
         <div class="price">450 د.ج</div>
         <div class="btn">عرض التفاصيل</div>
       </a>
 
-      <!-- Croissant -->
-      <a href="croissant.html" class="card">
+      <!-- Croissant - Category: Bakery -->
+      <a href="croissant.html" class="card" data-category="bakery">
         <model-viewer src="croissant.glb" auto-rotate environment-image="neutral" shadow-intensity="1"></model-viewer>
         <h3>كرواسون فرنسي</h3>
         <div class="price">350 د.ج</div>
         <div class="btn">عرض التفاصيل</div>
       </a>
 
-      <!-- Mini Cake -->
-      <a href="mini-cake.html" class="card">
+      <!-- Mini Cake - Category: Bakery -->
+      <a href="mini-cake.html" class="card" data-category="bakery">
         <model-viewer src="mini-cake.glb" auto-rotate environment-image="neutral" shadow-intensity="1"></model-viewer>
         <h3>ميني كيك</h3>
         <div class="price">750 د.ج</div>
@@ -323,5 +362,26 @@
     </div>
   </div>
 
+  <script>
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active button
+        document.querySelector('.filter-btn.active').classList.remove('active');
+        btn.classList.add('active');
+
+        // Filter cards
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.card').forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'block';
+            setTimeout(() => card.style.opacity = '1', 10);
+          } else {
+            card.style.opacity = '0';
+            setTimeout(() => card.style.display = 'none', 300);
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
