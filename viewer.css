@@ -125,7 +125,7 @@ header {
 .back-btn {
   position: fixed;
   top: 100px; /* Below header */
-  left: 20px;
+  right: 20px;
   padding: 10px 20px;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
@@ -139,6 +139,7 @@ header {
   align-items: center;
   gap: 8px;
 }
+
 
 .back-btn:hover {
   background: var(--primary);
