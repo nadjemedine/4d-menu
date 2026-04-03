@@ -18,6 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
   
   toggleBtn.addEventListener('click', toggle);
   
-  // Start collapsed by default? 
-  // Maybe start expanded but user can hide.
+  // Table View Mode
+  const arContainer = document.querySelector('.ar-button-container') || document.querySelector('.details-panel');
+  const tableBtn = document.createElement('button');
+  tableBtn.className = 'table-mode-btn';
+  tableBtn.innerHTML = '<span>&#x1F31F;</span> وضع الطاولة';
+  arContainer.appendChild(tableBtn);
+  
+  tableBtn.addEventListener('click', () => {
+    document.body.classList.toggle('table-view-active');
+    tableBtn.classList.toggle('active');
+    tableBtn.innerHTML = document.body.classList.contains('table-view-active') 
+      ? '<span>&#x1F6AB;</span> إيقاف وضع الطاولة' 
+      : '<span>&#x1F31F;</span> وضع الطاولة';
+  });
 });
