@@ -1,15 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
   const controls = document.querySelector('.controls');
+  const modelViewer = document.querySelector('model-viewer');
+  
+  // Create button container
+  const btnContainer = document.createElement('div');
+  btnContainer.className = 'action-buttons';
+  controls.prepend(btnContainer);
+
+  // Details Toggle Button
   const toggleBtn = document.createElement('button');
   toggleBtn.className = 'toggle-btn';
-  toggleBtn.innerHTML = '<span>&#x25BC;</span> التفاصيل';
+  toggleBtn.innerHTML = '<span>&#x25B2;</span> التفاصيل';
+  btnContainer.appendChild(toggleBtn);
   
-  controls.prepend(toggleBtn);
+  // AR Mode Button (Custom AR Button)
+  const arBtn = document.createElement('button');
+  arBtn.className = 'ar-btn-styled';
+  arBtn.innerHTML = '<span>&#x1F4F1;</span> عرض 3D بالواقع المعزز';
+  btnContainer.appendChild(arBtn);
   
   let isCollapsed = true;
   controls.classList.add('collapsed');
-  toggleBtn.innerHTML = '<span>&#x25B2;</span> التفاصيل';
-  
+
   const toggle = () => {
     isCollapsed = !isCollapsed;
     controls.classList.toggle('collapsed', isCollapsed);
@@ -17,19 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   
   toggleBtn.addEventListener('click', toggle);
-  
-  // Table View Mode
-  const arContainer = document.querySelector('.ar-button-container') || document.querySelector('.details-panel');
-  const tableBtn = document.createElement('button');
-  tableBtn.className = 'table-mode-btn';
-  tableBtn.innerHTML = '<span>&#x1F31F;</span> وضع الطاولة';
-  arContainer.appendChild(tableBtn);
-  
-  tableBtn.addEventListener('click', () => {
-    document.body.classList.toggle('table-view-active');
-    tableBtn.classList.toggle('active');
-    tableBtn.innerHTML = document.body.classList.contains('table-view-active') 
-      ? '<span>&#x1F6AB;</span> إيقاف وضع الطاولة' 
-      : '<span>&#x1F31F;</span> وضع الطاولة';
+
+  // Trigger AR from the custom button
+  arBtn.addEventListener('click', () => {
+    modelViewer.activateAR();
   });
 });
