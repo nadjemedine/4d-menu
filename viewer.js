@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // AR Mode Button (Custom AR Button)
   const arBtn = document.createElement('button');
   arBtn.className = 'ar-btn-styled';
-  arBtn.innerHTML = '<span>&#x1F4F1;</span> عرض 3D بالواقع المعزز';
+  arBtn.innerHTML = '<span>&#x1F4F1;</span> عرض 3D';
   btnContainer.appendChild(arBtn);
   
   let isCollapsed = true;
